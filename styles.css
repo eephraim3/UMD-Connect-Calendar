@@ -1,0 +1,1093 @@
+/* Enhanced UMD Events Platform Styles */
+
+/* Variables for consistent branding */
+:root {
+    --umd-red: #e21833;
+    --umd-dark-red: #800000;
+    --umd-gold: #ffd200;
+    --umd-black: #000000;
+    --umd-white: #ffffff;
+    --umd-gray: #f5f5f5;
+    --umd-dark-gray: #333333;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    --border-radius: 8px;
+    --header-font: 'Georgia', serif;
+    --body-font: 'Open Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  /* General styles */
+  body {
+    font-family: var(--body-font);
+    line-height: 1.6;
+    color: var(--umd-dark-gray);
+    background-color: var(--umd-gray);
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background-image: url('https://via.placeholder.com/1920x1080/f5f5f5/f5f5f5?text=');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+  }
+  
+  /* Maryland Flag Design Elements */
+  .flag-stripe {
+    height: 8px;
+    width: 100%;
+    background: linear-gradient(90deg, 
+      var(--umd-black) 0%, var(--umd-black) 25%, 
+      var(--umd-gold) 25%, var(--umd-gold) 50%, 
+      var(--umd-red) 50%, var(--umd-red) 75%,
+      var(--umd-white) 75%, var(--umd-white) 100%);
+    position: relative;
+  }
+  
+  /* Header with Maryland Flag design */
+  header {
+    background-color: var(--umd-white);
+    position: relative;
+    box-shadow: var(--shadow);
+  }
+  
+  .header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 5%;
+    position: relative;
+  }
+  
+  .umd-logo {
+    height: 60px;
+    margin-right: 20px;
+  }
+  
+  .testudo-icon {
+    position: absolute;
+    right: 20px;
+    bottom: -25px;
+    height: 80px;
+    z-index: 10;
+  }
+  
+  /* Navigation */
+  nav {
+    background-color: var(--umd-dark-red);
+    padding: 0;
+    position: relative;
+  }
+  
+  .nav-links {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+  }
+  
+  .nav-links li {
+    margin: 0;
+  }
+  
+  .nav-links a {
+    color: var(--umd-white);
+    text-decoration: none;
+    padding: 15px 25px;
+    display: block;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    position: relative;
+  }
+  
+  .nav-links a:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+  }
+  
+  .nav-links a.active {
+    background-color: var(--umd-red);
+    font-weight: bold;
+  }
+  
+  .nav-links a.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: var(--umd-gold);
+  }
+  
+  /* Headers and general content */
+  h1, h2, h3, h4 {
+    font-family: var(--header-font);
+    color: var(--umd-dark-red);
+    margin-top: 0.5em;
+  }
+  
+  h1 {
+    text-align: center;
+    margin-bottom: 1em;
+    font-size: 2.5rem;
+    position: relative;
+    padding-bottom: 15px;
+  }
+  
+  h1::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--umd-red) 0%, var(--umd-gold) 100%);
+  }
+  
+  h2 {
+    font-size: 1.8rem;
+    margin-bottom: 0.8em;
+  }
+  
+  /* Main content container */
+  main {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2em 3%;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .page-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.05;
+    object-fit: cover;
+  }
+  
+  .container-wrapper {
+    position: relative;
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    padding: 30px;
+    margin-bottom: 2em;
+  }
+  
+  .container-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100px;
+    height: 100px;
+    background-image: url('https://via.placeholder.com/100x100/800000/ffffff?text=UMD');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: top right;
+    opacity: 0.1;
+  }
+  
+  .hidden {
+    display: none !important;
+  }
+  
+  /* Maryland-themed Buttons */
+  button, .btn {
+    padding: 10px 18px;
+    font-weight: 600;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+  }
+  
+  .primary-button, button[type="submit"] {
+    background-color: var(--umd-red) !important;
+    color: var(--umd-white) !important;
+    border: none !important;
+    box-shadow: 0 2px 5px rgba(226, 24, 51, 0.3);
+  }
+  
+  .primary-button:hover, button[type="submit"]:hover {
+    background-color: #c41028 !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(226, 24, 51, 0.4);
+  }
+  
+  .view-toggle button {
+    padding: 10px 18px;
+    background-color: var(--umd-white);
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius);
+    font-weight: 600;
+  }
+  
+  .view-toggle button.active {
+    background-color: var(--umd-red);
+    color: var(--umd-white);
+    border-color: var(--umd-red);
+  }
+  
+  .view-toggle button:hover:not(.active) {
+    background-color: #f0f0f0;
+    border-color: #ccc;
+  }
+  
+  /* Form elements */
+  input, select, textarea {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius);
+    font-family: var(--body-font);
+    font-size: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: var(--umd-red);
+    box-shadow: 0 0 0 3px rgba(226, 24, 51, 0.2);
+  }
+  
+  textarea {
+    min-height: 120px;
+    resize: vertical;
+  }
+  
+  label {
+    font-weight: 600;
+    margin-bottom: 8px;
+    display: block;
+    color: var(--umd-dark-red);
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2em;
+  }
+  
+  .checkbox-container {
+    display: flex;
+    align-items: center;
+    margin: 1em 0;
+  }
+  
+  .checkbox-container input {
+    margin-right: 10px;
+    width: auto;
+  }
+  
+  /* Event cards and grids */
+  .events-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 25px;
+    margin-top: 1.5em;
+  }
+  
+  .event-card {
+    background: var(--umd-white);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+    border-top: 5px solid var(--umd-red);
+  }
+  
+  .event-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, 
+      var(--umd-black) 0%, var(--umd-black) 25%, 
+      var(--umd-gold) 25%, var(--umd-gold) 50%, 
+      var(--umd-red) 50%, var(--umd-red) 75%,
+      var(--umd-white) 75%, var(--umd-white) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .event-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  .event-card:hover::before {
+    opacity: 1;
+  }
+  
+  .event-header {
+    padding: 20px 20px 10px;
+    background: linear-gradient(to bottom, rgba(226, 24, 51, 0.05), transparent);
+    position: relative;
+  }
+  
+  .event-card h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: var(--umd-dark-red);
+    font-size: 1.4rem;
+  }
+  
+  .event-card p {
+    margin: 10px 0;
+    padding: 0 20px;
+  }
+  
+  .event-date {
+    font-weight: bold;
+    color: var(--umd-dark-gray);
+    display: flex;
+    align-items: center;
+  }
+  
+  .event-date::before {
+    content: '📅';
+    margin-right: 8px;
+  }
+  
+  .event-location {
+    display: flex;
+    align-items: center;
+  }
+  
+  .event-location::before {
+    content: '📍';
+    margin-right: 8px;
+  }
+  
+  .event-description-preview {
+    color: #666;
+    margin: 15px 20px !important;
+    line-height: 1.5;
+  }
+  
+  .view-details-button {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background-color: #f8f8f8;
+    border: none;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 15px;
+    font-weight: 600;
+    color: var(--umd-dark-red);
+  }
+  
+  .view-details-button:hover {
+    background-color: #f0f0f0;
+    color: var(--umd-red);
+  }
+  
+  /* Category tags */
+  .event-category-tag {
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: var(--umd-gold);
+    border-radius: 20px;
+    font-size: 0.8em;
+    color: var(--umd-black);
+    font-weight: 600;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+  }
+  
+  /* Status classes */
+  .past-event {
+    opacity: 0.7;
+  }
+  
+  .today-event {
+    position: relative;
+  }
+  
+  .today-event::after {
+    content: 'TODAY';
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: var(--umd-red);
+    color: white;
+    font-size: 0.7em;
+    font-weight: bold;
+    padding: 3px 8px;
+    border-radius: 10px;
+  }
+  
+  /* List view styles */
+  .events-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 1.5em;
+  }
+  
+  .date-header {
+    background-color: var(--umd-gray);
+    padding: 10px 15px;
+    font-weight: bold;
+    border-radius: var(--border-radius);
+    margin-top: 20px;
+    color: var(--umd-dark-red);
+    border-left: 4px solid var(--umd-red);
+  }
+  
+  .event-list-item {
+    display: grid;
+    grid-template-columns: 120px 1fr auto auto;
+    align-items: center;
+    background: var(--umd-white);
+    padding: 15px 20px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .event-list-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 5px;
+    background: linear-gradient(to bottom, var(--umd-red), var(--umd-gold));
+  }
+  
+  .event-list-item:hover {
+    transform: translateX(5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .event-list-item h3 {
+    margin: 0 0 8px 0;
+    color: var(--umd-dark-red);
+    font-size: 1.2rem;
+  }
+  
+  .event-time {
+    font-weight: bold;
+    color: #555;
+  }
+  
+  .event-details {
+    padding-right: 1em;
+  }
+  
+  .event-location, .event-organizer {
+    margin: 5px 0;
+    color: #666;
+    font-size: 0.9em;
+  }
+  
+  /* Search and filters */
+  .events-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 30px;
+    background: var(--umd-white);
+    padding: 25px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    position: relative;
+  }
+  
+  .events-controls::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, 
+      var(--umd-red) 0%, var(--umd-red) 25%, 
+      var(--umd-gold) 25%, var(--umd-gold) 50%, 
+      var(--umd-black) 50%, var(--umd-black) 75%,
+      var(--umd-red) 75%, var(--umd-red) 100%);
+    border-bottom-left-radius: var(--border-radius);
+    border-bottom-right-radius: var(--border-radius);
+  }
+  
+  .search-container {
+    width: 100%;
+    position: relative;
+  }
+  
+  #searchInput {
+    width: 100%;
+    padding: 12px 15px 12px 45px;
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    box-sizing: border-box;
+  }
+  
+  .search-container::before {
+    content: '🔍';
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.2rem;
+  }
+  
+  .filter-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .filter-group {
+    flex: 1;
+    min-width: 200px;
+  }
+  
+  .filter-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--umd-dark-red);
+  }
+  
+  .filter-group select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    background-color: white;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23800000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    background-size: 16px;
+  }
+  
+  /* View toggle */
+  .view-toggle {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 25px;
+  }
+  
+  .icon {
+    margin-right: 8px;
+  }
+  
+  /* Modal styles */
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    overflow: auto;
+    backdrop-filter: blur(5px);
+  }
+  
+  .modal-content {
+    background-color: var(--umd-white);
+    margin: 10% auto;
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+    max-width: 700px;
+    width: 90%;
+    position: relative;
+    animation: modalFadeIn 0.3s ease;
+  }
+  
+  @keyframes modalFadeIn {
+    from { opacity: 0; transform: translateY(-30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  .close-button {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #aaa;
+    cursor: pointer;
+    transition: color 0.2s;
+  }
+  
+  .close-button:hover {
+    color: var(--umd-red);
+  }
+  
+  .event-description-full {
+    margin: 25px 0;
+    color: #333;
+    line-height: 1.6;
+  }
+  
+  .event-contact {
+    background-color: #f8f8f8;
+    padding: 15px 20px;
+    border-radius: var(--border-radius);
+    margin: 20px 0;
+    border-left: 4px solid var(--umd-gold);
+  }
+  
+  .modal-actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 25px;
+    justify-content: flex-end;
+  }
+  
+  .modal-actions button {
+    padding: 10px 20px;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    border: 1px solid #ddd;
+    font-weight: 600;
+  }
+  
+  /* Calendar view styles */
+  .calendar-container {
+    background: var(--umd-white);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    padding: 25px;
+    margin-top: 1.5em;
+  }
+  
+  .calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .calendar-header button {
+    background: none;
+    border: none;
+    font-size: 1.8em;
+    cursor: pointer;
+    color: var(--umd-red);
+    transition: transform 0.2s ease;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+  }
+  
+  .calendar-header button:hover {
+    background-color: rgba(226, 24, 51, 0.1);
+    transform: scale(1.1);
+  }
+  
+  .calendar-header h2 {
+    margin: 0;
+    font-size: 1.6rem;
+  }
+  
+  .calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+  }
+  
+  .calendar-day-header {
+    text-align: center;
+    font-weight: bold;
+    padding: 10px;
+    background-color: var(--umd-gray);
+    border-radius: 6px;
+    color: var(--umd-dark-red);
+  }
+  
+  .calendar-day {
+    min-height: 120px;
+    background-color: #f9f9f9;
+    border-radius: 6px;
+    padding: 8px;
+    position: relative;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .calendar-day:hover:not(.empty) {
+    transform: translateY(-3px);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .calendar-day.empty {
+    background-color: #f0f0f0;
+  }
+  
+  .calendar-day.today {
+    background-color: rgba(226, 24, 51, 0.05);
+    border: 2px solid var(--umd-red);
+  }
+  
+  .day-number {
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+  
+  .today .day-number {
+    color: var(--umd-red);
+  }
+  
+  .day-events {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-top: 8px;
+  }
+  
+  .calendar-event {
+    background-color: rgba(226, 24, 51, 0.1);
+    padding: 5px 8px;
+    border-radius: 4px;
+    font-size: 0.85em;
+    cursor: pointer;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: background-color 0.2s ease;
+    border-left: 3px solid var(--umd-red);
+  }
+  
+  .calendar-event:hover {
+    background-color: rgba(226, 24, 51, 0.2);
+  }
+  
+  .more-events {
+    text-align: center;
+    font-size: 0.85em;
+    color: var(--umd-red);
+    cursor: pointer;
+    padding: 5px;
+    font-weight: 600;
+  }
+  
+  .more-events:hover {
+    text-decoration: underline;
+  }
+  
+  /* Host page specific styles */
+  .host-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  
+  @media (min-width: 900px) {
+    .host-container {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  
+  .host-form {
+    background: var(--umd-white);
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    position: relative;
+  }
+  
+  .host-form::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--umd-red), var(--umd-gold));
+    border-top-left-radius: var(--border-radius);
+    border-top-right-radius: var(--border-radius);
+  }
+  
+  .your-events {
+    background: var(--umd-white);
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+  }
+  
+  .event-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+  }
+  
+  .edit-button, .delete-button {
+    flex: 1;
+    padding: 8px 12px;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s ease;
+  }
+  
+  .edit-button {
+    background-color: #f0f0f0;
+    color: #555;
+  }
+  
+  .delete-button {
+    background-color: #f8d7d7;
+    color: #c41028;
+  }
+  
+  .edit-button:hover {
+    background-color: #e0e0e0;
+    transform: translateY(-2px);
+  }
+  
+  .delete-button:hover {
+    background-color: #f0bfbf;
+    transform: translateY(-2px);
+  }
+  
+  /* Feed page styles */
+  .feed-container {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    margin-top: 1.5em;
+  }
+  
+  .feed-post {
+    background: var(--umd-white);
+    border-radius: var(--border-radius);
+    padding: 25px;
+    box-shadow: var(--shadow);
+    position: relative;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .feed-post:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .feed-post::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--umd-red), var(--umd-gold));
+    border-top-left-radius: var(--border-radius);
+    border-top-right-radius: var(--border-radius);
+  }
+  
+  .feed-post h3 {
+    color: var(--umd-dark-red);
+    margin-top: 0;
+    font-size: 1.6rem;
+  }
+  
+  .no-events {
+    text-align: center;
+    background: var(--umd-white);
+    padding: 40px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+  }
+  
+  /* Footer with Maryland flag design */
+  footer {
+    background-color: var(--umd-dark-gray);
+    color: var(--umd-white);
+    padding: 30px 0;
+    margin-top: 50px;
+    position: relative;
+  }
+  
+  .footer-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .footer-logo {
+    width: 200px;
+    margin-bottom: 20px;
+  }
+  
+  .footer-links {
+    display: flex;
+    gap: 20px;
+    margin: 15px 0;
+  }
+  
+  .footer-links a {
+    color: var(--umd-white);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  
+  .footer-links a:hover {
+    color: var(--umd-gold);
+  }
+  
+  .footer-flag {
+    height: 10px;
+    width: 100%;
+    background: linear-gradient(90deg, 
+      var(--umd-black) 0%, var(--umd-black) 25%, 
+      var(--umd-gold) 25%, var(--umd-gold) 50%, 
+      var(--umd-red) 50%, var(--umd-red) 75%,
+      var(--umd-white) 75%, var(--umd-white) 100%);
+    margin-top: 20px;
+  }
+  
+  .copyright {
+    margin-top: 15px;
+    font-size: 0.9em;
+    opacity: 0.8;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 1200px) {
+    main {
+      padding: 2em 5%;
+    }
+    
+    .container-wrapper {
+      padding: 25px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .host-container {
+      grid-template-columns: 1fr;
+    }
+    
+    .event-list-item {
+      grid-template-columns: 80px 1fr;
+      grid-template-rows: auto auto;
+    }
+    
+    .event-category, .event-list-item button {
+      grid-column: span 2;
+      margin-top: 10px;
+    }
+    
+    .filter-group {
+      min-width: 100%;
+    }
+    
+    .modal-content {
+      width: 95%;
+      margin: 5% auto;
+      padding: 20px;
+    }
+    
+    .calendar-day {
+      min-height: 80px;
+    }
+    
+    .header-container {
+      flex-direction: column;
+      text-align: center;
+    }
+    
+    .umd-logo {
+      margin-right: 0;
+      margin-bottom: 10px;
+    }
+    
+    .testudo-icon {
+      position: static;
+      height: 60px;
+      margin-bottom: 10px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .nav-links {
+      flex-wrap: wrap;
+    }
+    
+    .nav-links li {
+      width: 100%;
+      text-align: center;
+    }
+    
+    .flag-stripe {
+      height: 5px;
+    }
+  }
+  
+  /* Animations and transitions */
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  @keyframes slideUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+  
+  .animated {
+    animation: fadeIn 0.5s ease forwards;
+  }
+  
+  .slide-up {
+    animation: slideUp 0.5s ease forwards;
+  }
+  
+  /* Maryland-themed decorative elements */
+  .maryland-flag-corner {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50px;
+    height: 50px;
+    background-image: url('https://via.placeholder.com/50x50/e21833/e21833?text=');
+    background-size: cover;
+    clip-path: polygon(100% 0, 0 0, 100% 100%);
+    opacity: 0.8;
+  }
+  
+  .testudo-watermark {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: 120px;
+    height: 120px;
+    background-image: url('https://via.placeholder.com/120x120/ffffff/ffffff?text=');
+    background-repeat: no-repeat;
+    background-size: contain;
+    opacity: 0.07;
+    pointer-events: none;
+  }

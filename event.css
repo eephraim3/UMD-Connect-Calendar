@@ -1,0 +1,612 @@
+/* Additional CSS for the UMD Events application */
+
+/* General styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f7f7f7;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Navigation */
+  nav {
+    background-color: #800000; /* UMD red */
+    padding: 0.5em 1em;
+  }
+  
+  .nav-links {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+  }
+  
+  .nav-links li {
+    margin: 0 1em;
+  }
+  
+  .nav-links a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5em 1em;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+  }
+  
+  .nav-links a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .nav-links a.active {
+    background-color: rgba(255, 255, 255, 0.2);
+    font-weight: bold;
+  }
+  
+  /* Headers and general content */
+  h1, h2, h3 {
+    color: #333;
+  }
+  
+  h1 {
+    text-align: center;
+    margin-bottom: 1em;
+    color: #800000; /* UMD red */
+  }
+  
+  /* Main content container */
+  main {
+    max-width: 1200px;
+    margin: 2em auto;
+    padding: 0 1em;
+  }
+  
+  .hidden {
+    display: none !important;
+  }
+  
+  /* Event cards and grids */
+  .events-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5em;
+    margin-top: 1.5em;
+  }
+  
+  .event-card {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  .event-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+  }
+  
+  .event-header {
+    padding: 1em;
+    background-color: #f8f8f8;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .event-card h3 {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    color: #800000; /* UMD red */
+  }
+  
+  .event-card p {
+    margin: 0.5em 0;
+    padding: 0 1em;
+  }
+  
+  .event-date {
+    font-weight: bold;
+    color: #444;
+  }
+  
+  .event-description-preview {
+    color: #666;
+    margin-bottom: 1em !important;
+  }
+  
+  .view-details-button {
+    display: block;
+    width: 100%;
+    padding: 0.8em;
+    background-color: #f0f0f0;
+    border: none;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 1em;
+  }
+  
+  .view-details-button:hover {
+    background-color: #e0e0e0;
+  }
+  
+  /* Category tags */
+  .event-category-tag {
+    display: inline-block;
+    padding: 0.3em 0.6em;
+    background-color: #f0f0f0;
+    border-radius: 3px;
+    font-size: 0.8em;
+    color: #666;
+  }
+  
+  /* Status classes */
+  .past-event {
+    opacity: 0.7;
+  }
+  
+  .today-event {
+    border: 2px solid #800000; /* UMD red */
+  }
+  
+  /* List view styles */
+  .events-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    margin-top: 1.5em;
+  }
+  
+  .date-header {
+    background-color: #f0f0f0;
+    padding: 0.5em 1em;
+    font-weight: bold;
+    border-radius: 4px;
+    margin-top: 1em;
+  }
+  
+  .event-list-item {
+    display: grid;
+    grid-template-columns: 100px 1fr auto auto;
+    align-items: center;
+    background: white;
+    padding: 1em;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .event-list-item:hover {
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+  }
+  
+  .event-list-item h3 {
+    margin: 0;
+    color: #800000; /* UMD red */
+  }
+  
+  .event-time {
+    font-weight: bold;
+    color: #555;
+  }
+  
+  .event-details {
+    padding-right: 1em;
+  }
+  
+  .event-location, .event-organizer {
+    margin: 0.2em 0;
+    color: #666;
+    font-size: 0.9em;
+  }
+  
+  /* Search and filters */
+  .events-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    margin-bottom: 1.5em;
+    background: white;
+    padding: 1em;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .search-container {
+    width: 100%;
+  }
+  
+  #searchInput {
+    width: 100%;
+    padding: 0.8em;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1em;
+    box-sizing: border-box;
+  }
+  
+  .filter-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+  }
+  
+  .filter-group {
+    flex: 1;
+    min-width: 200px;
+  }
+  
+  .filter-group label {
+    display: block;
+    margin-bottom: 0.3em;
+    font-weight: bold;
+    color: #555;
+  }
+  
+  .filter-group select {
+    width: 100%;
+    padding: 0.7em;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 0.9em;
+    background-color: white;
+  }
+  
+  /* View toggle */
+  .view-toggle {
+    display: flex;
+    justify-content: center;
+    gap: 0.5em;
+    margin-bottom: 1em;
+  }
+  
+  .view-toggle button {
+    padding: 0.5em 1em;
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .view-toggle button.active {
+    background-color: #800000; /* UMD red */
+    color: white;
+    border-color: #800000;
+  }
+  
+  .view-toggle button:hover:not(.active) {
+    background-color: #e0e0e0;
+  }
+  
+  .icon {
+    margin-right: 0.3em;
+  }
+  
+  /* Modal styles */
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    overflow: auto;
+  }
+  
+  .modal-content {
+    background-color: white;
+    margin: 10% auto;
+    padding: 2em;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    max-width: 600px;
+    width: 90%;
+    position: relative;
+  }
+  
+  .close-button {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #aaa;
+    cursor: pointer;
+  }
+  
+  .close-button:hover {
+    color: #333;
+  }
+  
+  .event-description-full {
+    margin: 1.5em 0;
+    color: #333;
+  }
+  
+  .event-contact {
+    background-color: #f8f8f8;
+    padding: 1em;
+    border-radius: 6px;
+    margin: 1em 0;
+  }
+  
+  .modal-actions {
+    display: flex;
+    gap: 1em;
+    margin-top: 1.5em;
+  }
+  
+  .modal-actions button {
+    padding: 0.7em 1.2em;
+    border-radius: 4px;
+    cursor: pointer;
+    border: 1px solid #ddd;
+    background-color: #f0f0f0;
+  }
+  
+  .primary-button {
+    background-color: #800000 !important; /* UMD red */
+    color: white !important;
+    border-color: #800000 !important;
+  }
+  
+  .primary-button:hover {
+    background-color: #670000 !important;
+  }
+  
+  /* Calendar view styles */
+  .calendar-container {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 1em;
+    margin-top: 1.5em;
+  }
+  
+  .calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1em;
+  }
+  
+  .calendar-header button {
+    background: none;
+    border: none;
+    font-size: 1.5em;
+    cursor: pointer;
+    color: #800000; /* UMD red */
+  }
+  
+  .calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+  }
+  
+  .calendar-day-header {
+    text-align: center;
+    font-weight: bold;
+    padding: 0.5em;
+    background-color: #f0f0f0;
+    border-radius: 4px;
+  }
+  
+  .calendar-day {
+    min-height: 100px;
+    background-color: #f9f9f9;
+    border-radius: 4px;
+    padding: 0.5em;
+    position: relative;
+  }
+  
+  .calendar-day.empty {
+    background-color: #f0f0f0;
+  }
+  
+  .calendar-day.today {
+    background-color: #fff0f0; /* Light red for today */
+    border: 1px solid #800000; /* UMD red */
+  }
+  
+  .day-number {
+    font-weight: bold;
+    margin-bottom: 0.5em;
+  }
+  
+  .day-events {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    margin-top: 0.5em;
+  }
+  
+  .calendar-event {
+    background-color: #e0e0e0;
+    padding: 3px 5px;
+    border-radius: 3px;
+    font-size: 0.8em;
+    cursor: pointer;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .calendar-event:hover {
+    background-color: #d0d0d0;
+  }
+  
+  .event-time {
+    font-weight: bold;
+    margin-right: 5px;
+  }
+  
+  .more-events {
+    text-align: center;
+    font-size: 0.8em;
+    color: #800000; /* UMD red */
+    cursor: pointer;
+    padding: 3px;
+  }
+  
+  .more-events:hover {
+    text-decoration: underline;
+  }
+  
+  /* Host page specific styles */
+  .host-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2em;
+  }
+  
+  @media (min-width: 900px) {
+    .host-container {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  
+  .host-form {
+    background: white;
+    padding: 1.5em;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .checkbox-container {
+    display: flex;
+    align-items: center;
+    margin: 1em 0;
+  }
+  
+  .checkbox-container input {
+    margin-right: 0.5em;
+  }
+  
+  .your-events {
+    background: white;
+    padding: 1.5em;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .event-actions {
+    display: flex;
+    gap: 0.5em;
+    margin-top: 1em;
+  }
+  
+  .edit-button, .delete-button {
+    flex: 1;
+    padding: 0.5em;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .edit-button {
+    background-color: #f0f0f0;
+  }
+  
+  .delete-button {
+    background-color: #f8d7d7;
+  }
+  
+  .edit-button:hover {
+    background-color: #e0e0e0;
+  }
+  
+  .delete-button:hover {
+    background-color: #f0bfbf;
+  }
+  
+  /* Feed page styles */
+  .feed-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+    margin-top: 1.5em;
+  }
+  
+  .feed-post {
+    background: white;
+    border-radius: 8px;
+    padding: 1.5em;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .feed-post h3 {
+    color: #800000; /* UMD red */
+    margin-top: 0;
+  }
+  
+  .no-events {
+    text-align: center;
+    background: white;
+    padding: 2em;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Form styles */
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+  }
+  
+  input, select, textarea {
+    padding: 0.8em;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 1em;
+  }
+  
+  textarea {
+    min-height: 100px;
+    resize: vertical;
+  }
+  
+  button {
+    cursor: pointer;
+  }
+  
+  /* Footer */
+  footer {
+    background-color: #f0f0f0;
+    text-align: center;
+    padding: 1em;
+    margin-top: 2em;
+    color: #666;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .event-list-item {
+      grid-template-columns: 80px 1fr;
+      grid-template-rows: auto auto;
+    }
+    
+    .event-category, .event-list-item button {
+      grid-column: span 2;
+      margin-top: 0.5em;
+    }
+    
+    .filter-group {
+      min-width: 100%;
+    }
+    
+    .modal-content {
+      width: 95%;
+      margin: 5% auto;
+      padding: 1em;
+    }
+    
+    .calendar-day {
+      min-height: 80px;
+    }
+  }

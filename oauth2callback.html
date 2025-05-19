@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Auth Callback - UMD Events</title>
+  <link rel="stylesheet" href="enhanced-umd-styles.css">
+  <script src="https://apis.google.com/js/api.js"></script>
+</head>
+<body>
+  <!-- Maryland flag stripe -->
+  <div class="flag-stripe"></div>
+  
+  <!-- Header will be dynamically added -->
+  <main>
+    <div class="container-wrapper">
+      <h1 id="statusTitle">Processing Authorization...</h1>
+      <div id="statusMessage" class="event-description-full">
+        <p>Please wait while we complete the authorization process...</p>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-container">
+      <img src="https://via.placeholder.com/200x80/333333/e21833?text=UMD+EVENTS" alt="UMD Events" class="footer-logo">
+      <div class="footer-links">
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+        <a href="#">Policies</a>
+        <a href="#">Accessibility</a>
+      </div>
+      <p class="copyright">© 2025 University of Maryland. All rights reserved.</p>
+    </div>
+    <div class="footer-flag"></div>
+  </footer>
+  
+  <script>
+    // Generate a unique ID for events
+    function generateEventId() {
+      return Date.now().toString(36) + Math.random().toString(36).substring(2, 5);
+    }
+    
+    // Function to update the UI with status information
+    function updateStatus(title, message, isError = false) {
+      const titleEl = document.getElementById('statusTitle');
+      const messageEl = document.getElementById('statusMessage');
+      
+      titleEl.textContent = title;
+      messageEl.innerHTML = message;
+      
+      if (isError) {
+        titleEl.style.color = '#e21833'; // UMD red
+        // Add a home link if error
+        messageEl.innerHTML += '<p><a href="index.html" class="primary-button">Return to Homepage</a></p>';
+      }
+    }
+    
+    // Parse the URL parameters
+    const urlParams = new URLSearchParams(window.location.search);
+    const code = urlParams.get('code');
+    const state = urlParams.get('state');
+    const error = urlParams.get('error');
+    const storedState = localStorage.getItem('oauth_state');
+    
+    // Check if there's an error
+    if (error) {
+      updateStatus(
+        'Authorization Error',
+        `<p>${error}</p><p>Details: ${urlParams.get('error_description') || 'No additional details provided'}</p>`,
+        true
+      );
+    } 
+    // Verify state parameter to prevent CSRF
+    else if (!state || state !== storedState) {
+      updateStatus(
+        'Security Error',
+        '<p>State mismatch. Possible cross-site request forgery detected.</p>' +
+        '<p>This could happen if:</p>' +
+        '<ul>' +
+        '  <li>You refreshed or navigated away during the authentication process</li>' +
+        '  <li>Your browser privacy settings are blocking local storage</li>' +
+        '  <li>You\'re using multiple browser tabs/windows</li>' +
+        '</ul>' +
+        '<p>Please try again from the main page.</p>',
+        true
+      );
+    }
+    // Process the authorization code
+    else if (code) {
+      // Here you would normally make a server-side call to exchange the code for tokens
+      // For a client-side only solution, we'll simulate success
+      
+      const eventData = JSON.parse(localStorage.getItem('pendingEvent') || '{}');
+      
+      if (Object.keys(eventData).length === 0) {
+        updateStatus(
+          'Error Processing Event',
+          '<p>No event data found. The session may have expired.</p>',
+          true
+        );
+      } else {
+        // Save the event to local storage
+        saveToLocal(eventData);
+        
+        // Show success message
+        updateStatus(
+          'Authorization Successful',
+          '<p>Your event has been created successfully!</p>' +
+          '<p>You will be redirected to the events page in a moment...</p>'
+        );
+        
+        // Clean up
+        localStorage.removeItem('oauth_state');
+        localStorage.removeItem('pendingEvent');
+        
+        // Redirect to the events page
+        setTimeout(() => {
+          window.location.href = `events.html?organizer=${encodeURIComponent(eventData.organizer)}`;
+        }, 2000);
+      }
+    } else {
+      updateStatus(
+        'Authorization Error',
+        '<p>No authorization code was received from the authentication server.</p>',
+        true
+      );
+    }
+    
+    function saveToLocal(eventData) {
+      // Add unique ID and created timestamp if not present
+      if (!eventData.id) {
+        eventData.id = generateEventId();
+      }
+      if (!eventData.createdAt) {
+        eventData.createdAt = new Date().toISOString();
+      }
+      
+      const existing = JSON.parse(localStorage.getItem("events") || "[]");
+      
+      // Check if we're updating an existing event
+      const existingIndex = existing.findIndex(e => e.id === eventData.id);
+      
+      if (existingIndex !== -1) {
+        // Update existing event
+        eventData.updatedAt = new Date().toISOString();
+        existing[existingIndex] = eventData;
+      } else {
+        // Add new event
+        existing.push(eventData);
+      }
+      
+      localStorage.setItem("events", JSON.stringify(existing));
+    }
+  </script>
+</body>
+</html>

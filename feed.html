@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Event Feed</title>
+  <link rel="stylesheet" href="enhanced-umd-styles.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html">Host an Event</a></li>
+        <li><a href="events.html">All Events</a></li>
+        <li><a href="feed.html" class="active">Your Feed</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+  <main>
+    <h1>📅 Organizer's Feed</h1>
+    <div id="feed" class="feed-container"></div>
+  </main>
+
+  <footer>
+    <p>University of Maryland Events Platform</p>
+  </footer>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const organizer = params.get("organizer");
+    const allEvents = JSON.parse(localStorage.getItem("events") || "[]");
+    const organizerEvents = allEvents.filter(e => e.organizer === organizer);
+
+    const feed = document.getElementById("feed");
+    
+    if (organizer) {
+      document.querySelector('h1').textContent = `📅 ${organizer}'s Events`;
+    }
+    
+    if (organizerEvents.length === 0) {
+      feed.innerHTML = `<p class="no-events">No events found for this organizer.</p>`;
+      if (organizer) {
+        feed.innerHTML += `<p><a href="index.html" class="primary-button">Create an Event</a></p>`;
+      }
+    } else {
+      // Sort events by date (newest first)
+      organizerEvents.sort((a, b) => new Date(b.datetime) - new Date(a.datetime));
+      
+      // Display events
+      organizerEvents.forEach(ev => {
+        const post = document.createElement("div");
+        post.className = "feed-post";
+        post.innerHTML = `
+          <h3>${ev.name}</h3>
+          <p><strong>Organized by:</strong> ${ev.organizer}</p>
+          <p><strong>Date:</strong> ${new Date(ev.datetime).toLocaleString()}</p>
+          <p><strong>Location:</strong> ${ev.location || 'Not specified'}</p>
+          <p>${ev.description}</p>
+          ${ev.contactEmail ? `<p><strong>Contact:</strong> ${ev.contactEmail}</p>` : ''}
+          ${ev.registrationLink ? `<p><strong>Registration:</strong> <a href="${ev.registrationLink}" target="_blank">Register Here</a></p>` : ''}
+        `;
+        feed.appendChild(post);
+      });
+    }
+  </script>
+</body>
+</html>

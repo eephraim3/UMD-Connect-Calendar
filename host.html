@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Host Campus Event</title>
+  <link rel="stylesheet" href="enhanced-umd-styles.css">
+  <script src="https://apis.google.com/js/api.js"></script>
+</head>
+<body>
+  <header>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html">Create Event</a></li>
+        <li><a href="events.html">All Events</a></li>
+        <li><a href="host.html" class="active">Host Dashboard</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Host an Event at UMD</h1>
+    
+    <div class="host-container">
+      <section class="host-form">
+        <h2>Create New Event</h2>
+        <form id="hostEventForm">
+          <input type="text" id="name" placeholder="Event Name" required>
+          <input type="text" id="organizer" placeholder="Organizer/Club Name" required>
+          <input type="datetime-local" id="datetime" required>
+          <select id="location" required>
+            <option value="">-- Select Location --</option>
+            <option value="Stamp Student Union">Stamp Student Union</option>
+            <option value="McKeldin Library">McKeldin Library</option>
+            <option value="Iribe Center">Iribe Center</option>
+            <option value="CSPAC">Clarice Smith Performing Arts Center</option>
+            <option value="Xfinity Center">Xfinity Center</option>
+            <option value="Other">Other (specify in description)</option>
+          </select>
+          <select id="category" required>
+            <option value="">-- Select Category --</option>
+            <option value="Academic">Academic</option>
+            <option value="Club">Club/Organization</option>
+            <option value="Sports">Sports</option>
+            <option value="Arts">Arts & Culture</option>
+            <option value="Career">Career & Professional</option>
+            <option value="Social">Social</option>
+            <option value="Other">Other</option>
+          </select>
+          <textarea id="description" placeholder="Event Description" required rows="4"></textarea>
+          <input type="email" id="contactEmail" placeholder="Contact Email" required>
+          <input type="tel" id="contactPhone" placeholder="Contact Phone (optional)">
+          <input type="url" id="registrationLink" placeholder="Registration Link (optional)">
+          <div class="checkbox-container">
+            <input type="checkbox" id="addToCalendar" checked>
+            <label for="addToCalendar">Add to Google Calendar</label>
+          </div>
+          <button type="submit" class="primary-button">Create Event</button>
+        </form>
+      </section>
+
+      <section class="your-events">
+        <h2>Your Events</h2>
+        <div id="organizerEvents" class="events-grid">
+          <!-- Events will be populated here by JavaScript -->
+          <p id="noEvents" class="hidden">You haven't created any events yet.</p>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <p>University of Maryland Events Platform</p>
+  </footer>
+
+  <script src="host.js"></script>
+</body>
+</html>
